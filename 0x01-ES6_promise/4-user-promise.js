@@ -1,5 +1,5 @@
 /**
- * Signs a User up with their first name and last name.
+ * Signs a User up with their first and last names.
  *
  * @param {string} firstName - The first name of the user.
  * @param {string} lastName - The last name of the user.
