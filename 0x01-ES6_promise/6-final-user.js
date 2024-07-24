@@ -10,15 +10,23 @@ import uploadPhoto from './5-photo-reject';
  * @return {Promise<Array<Object>>} A promise that resolves with an array
  * of objects containing the status and value or error of each promise.
  */
-export default function handleProfileSignup(firstName, lastName, fileName) {
-  return Promise.allSettled([
-    signUpUser(firstName, lastName),
-    uploadPhoto(fileName),
-  ]).then((values) => {
-    const arr = [];
-    for (const item of values) {
-      arr.push({ status: item.status, value: item.value || item.reason });
-    }
-    return arr;
-  });
+export default async function handleProfileSignup(
+  firstName,
+  lastName,
+  fileName
+) {
+  const handlePromise = (promise) =>
+    promise
+      .then((result) => ({ status: 'fulfilled', value: result }))
+      .catch((error) => ({
+        status: 'rejected',
+        error: `Error: ${error.message}`,
+      }));
+
+  const promises = [
+    handlePromise(signUpUser(firstName, lastName)),
+    handlePromise(uploadPhoto(fileName)),
+  ];
+
+  return Promise.all(promises);
 }
