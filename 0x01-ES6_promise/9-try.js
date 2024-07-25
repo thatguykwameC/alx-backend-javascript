@@ -10,10 +10,11 @@ export default function guardrail(mathFunction) {
 
   try {
     queue.push(mathFunction());
-  } catch (err) {
-    queue.push(err.toString());
+  } catch (error) {
+    queue.push(String(error));
   } finally {
     queue.push('Guardrail was processed');
   }
+
   return queue;
 }
