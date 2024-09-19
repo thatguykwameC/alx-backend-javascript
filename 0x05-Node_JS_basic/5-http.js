@@ -5,7 +5,7 @@ const displayMessage = require('./0-console');
 
 const HOST = 'localhost';
 const PORT = 1245;
-const stFile = require('./file_handler');
+const stFile = require('./handler');
 
 const argPath = process.argv.length > 2 ? process.argv[2] : '';
 
