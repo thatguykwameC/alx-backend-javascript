@@ -9,9 +9,9 @@
  */
 const fs = require('fs');
 const displayMessage = require('./0-console');
+
 function countStudents(path) {
-  if (!(fs.existsSync(path) && fs.statSync(path).isFile()))
-    throw Error('Cannot load the database');
+  if (!(fs.existsSync(path) && fs.statSync(path).isFile())) throw Error('Cannot load the database');
 
   const dt = fs.readFileSync(path, 'utf-8').trim();
 
@@ -43,8 +43,8 @@ function countStudents(path) {
   for (const [field, names] of Object.entries(fields)) {
     displayMessage(
       `Number of students in ${field}: ${names.length}. List: ${names.join(
-        ', '
-      )}`
+        ', ',
+      )}`,
     );
   }
 }
