@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 
+/**
+ * Performs a mathematical operation based on the provided type.
+ *
+ * @param {string} type - The type of operation to perform (SUM, SUBTRACT, DIVIDE)
+ * @param {number} a - The first operand
+ * @param {number} b - The second operand
+ * @return {number|string} The result of the operation or 'Error' if division by zero occurs
+ */
 const calculateNumber = (type, a, b) => {
   const val1 = Math.round(a);
   const val2 = Math.round(b);
