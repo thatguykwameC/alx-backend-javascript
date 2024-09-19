@@ -43,8 +43,8 @@ function countStudents(path) {
       for (const [field, names] of Object.entries(fields)) {
         displayMessage(
           `Number of students in ${field}: ${names.length}. List: ${names.join(
-            ', '
-          )}`
+            ', ',
+          )}`,
         );
       }
       return Promise.resolve();
